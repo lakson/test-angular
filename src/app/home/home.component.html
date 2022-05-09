@@ -1,0 +1,181 @@
+<div class="content">
+  <!-- Head -->
+  <div class="header">
+    <h1>GET IN TOUCH</h1>
+    <p>
+      Want to start mining your own cryptocurrencies or have <br>
+       any questions? You'are almost there!
+    </p>
+  </div>
+
+
+  <!-- Body -->
+  <div class="body">
+    <h2><b>ONE FINAL STEP...</b></h2>
+    <p>In order to better serve you, all acount openings are checked one by one</p>
+    <p>Simply complete the form below and a member of our team will contact you shortly, to simply help you clarify any questions you may have, or if you wish to open an account directly. </p>
+    <p class="error error-top">
+      However, please note that it is now TOO LATE (since May 31, 2021) to join us. <br>
+      Orders are currently suspended indefinitely. <br>
+      Please enter your details below to be notified when we reopen 🙂
+    </p>
+
+    <!-- FORM  -->
+    <div class="form">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+
+      <!-- First/Last Name -->
+      <div class="row space">
+        <div class="col6">
+          <label>
+            First Name<sup>*</sup>: <br>
+            <input [ngClass]="{'input-error': ifError('firstName')}"   formControlName="firstName" placeholder="" class="input">
+          </label>
+          <div class="error error-style" *ngIf="ifError('firstName')">
+            Please complete this required field
+          </div>
+        </div>
+        <div class="col6 divSpace">
+          <label>
+            Last Name<sup>*</sup>: <br>
+            <input [ngClass]="{'input-error': ifError('lastName')}"   formControlName="lastName" placeholder="" class="input">
+          </label>
+          <div class="error error-style" *ngIf="ifError('lastName')">
+            Please complete this required field
+          </div>
+        </div>
+      </div>
+
+      <!-- Email / Phone -->
+      <div class="row space">
+        <div class="col6">
+          <label>
+            Email:<br>
+            <input  [ngClass]="{'input-error': ifError('email')}"  formControlName="email" placeholder="" class="input">
+          </label>
+          <div *ngIf="ifError('email')" class="error error-style">
+            Please enter a correct email address
+          </div>
+        </div>
+        <div class="col6 divSpace">
+            <label>Phone number: </label>
+            <div class="row">
+
+                <div class="divCodePhone">
+                        <select [(ngModel)]="phoneCode" [ngModelOptions]="{standalone: true}" class="input selectCountry">
+                          <option *ngFor="let item of data.countriesCode" [value]="item.dial_code">{{ item.name }}</option>
+                        </select>
+                </div>
+                <div class="divPhoneInput">
+                  <label class="phone input" >
+                    {{ phoneCode }}
+                    <input type="tel"  [ngClass]="{'input-error': ifError('email')}"  formControlName="phone" placeholder="">
+                  </label>
+
+                </div>
+
+            </div>
+            <div *ngIf="ifError('phone')" class="error error-style error-phone">
+              Please complete this required field
+            </div>
+        </div>
+
+      </div>
+
+      <!-- Message -->
+      <div class="space">
+        <label>
+          Message<sup>*</sup> <br>
+          <textarea  class="input message-input"  [ngClass]="{'input-error': ifError('message')}"  formControlName="message" placeholder="">
+            </textarea>
+        </label>
+        <div *ngIf="ifError('message')" class="error error-style">
+          Please complete this required field
+        </div>
+      </div>
+
+      <!-- Language -->
+      <div class="space">
+        <label>
+          Preferred language: <br>
+          <select formControlName="language" class="input language">
+            <option *ngFor="let item of  data.preferedLanguages" [value]="item.value">{{ item.name }}</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Promo code -->
+      <div class="space">
+        <label>
+          If you have a promo code or if someone told  you about us, please enter the details here: <br>
+          <input class="input message-input"  [ngClass]="{'input-error': ifError('promo')}"  formControlName="promo" placeholder="">
+        </label>
+      </div>
+
+      <p class="success" *ngIf="saved" >Data Saved!</p>
+      <p class="error" *ngIf="error" >{{ error }}</p>
+
+      <button type="submit"
+              [ngClass]="{'opacity': myForm.invalid}"
+              [disabled]="myForm.invalid || saving" class="buttom-submit">
+              <span *ngIf="!saving" >SUBMIT</span>
+              <span *ngIf="saving">SAVING...</span>
+      </button>
+    </form>
+    </div>
+  </div>
+
+
+
+
+  <!-- Foot -->
+  <div class="footer">
+       <div class="carre">&nbsp;</div>
+      <h3>
+         JOIN 5,000+ FELLOW <br>
+         SUMMIY MINERS
+      </h3>
+      <img src="assets/imgs/discord1.png" width="50" alt="" class="logo1">
+      <p class="joinus"><b>Join us on Discord</b></p>
+      <p class="text-footer">
+        Join us on Discord and get <b>expert cryptocurrecies tips</b> straight to you <br>
+        Go <b>behind the scenes</b> of Summit Mining (photos, videos, interviews, etc) <br>
+        Become an even more profitable cryptocurrency miner
+      </p>
+
+      <div class="row list-join">
+        <div class="col4">
+          <div class="joinus-box">
+            <img src="assets/imgs/france.png" alt="" class="logo2">
+            <p class="text-logo">
+              Join our French <br>
+              Discord group <br>
+              <span>&nbsp;</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col4">
+          <div class="joinus-box">
+            <img src="assets/imgs/gbk.png" alt="" class="logo2">
+            <p class="text-logo">
+              Join our English <br>
+              Discord group <br>
+              <span>&nbsp;</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col4">
+          <div class="joinus-box">
+            <img  src="assets/imgs/discord2.png"  alt="" class="logo2">
+            <p class="text-logo">
+              Join our Private <br>
+              Discord group <br>
+              <span class="sub"><sup>*</sup>Available on invitation only</span>
+            </p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

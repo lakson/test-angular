@@ -1,0 +1,349 @@
+@mixin center-item {
+  margin: 0 auto;
+  display: flex;
+}
+
+$white: #ffffff;
+$error-red: #da2d16;
+$input-back: #f5f8fa;
+$input-border: #cbd6e2;
+$footer-back: #f2f2f2;
+$success: #297a29;
+$text-sub: #585d63;
+
+p, h1, h2, h3{
+  text-align: center;
+}
+
+img {
+  @include center-item;
+}
+
+
+.content{
+  .header{
+    position: relative;
+    height: 250px;
+    background: rgb(67,159,235);
+    background: linear-gradient(180deg, rgba(67,159,235,1) 0%, rgba(40,26,200,1) 100%, rgba(50, 132, 226, 1) 100%);
+    color: $white;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+    h1{
+      padding-top: 8%;
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    p{
+      margin: 0;
+      font-size: 12px;
+    }
+  }
+
+
+  .body{
+    max-width: 700px;
+    @include center-item;
+    flex-direction: column;
+    padding-bottom: 50px;
+    h2{
+      margin-top: 60px;
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
+
+    p{
+      font-size: 12px;
+      margin: 0;
+      padding-bottom: 12px;
+    }
+
+    .form{
+       @include center-item;
+       width: 100%;
+       form{
+        width: 100%;
+        label{
+          font-size: 12px;
+          sup{
+            color: $error-red;
+          }
+        }
+       }
+       .input{
+        width: 90%;
+        background: $input-back;
+        padding: 8px;
+        border-radius: 2px;
+        border: 1.5px solid $input-border;
+       }
+
+       button{
+        @include center-item;
+        padding: 11px 24px;
+        border: none;
+        color: $white;
+        background: #fd9826;
+        margin-top: 25px;
+       }
+
+       .input-error{
+         border: 1px solid $error-red;
+       }
+
+       .phone{
+         input{
+          background: $input-back;
+          border: none;
+          height: 23px;
+          margin: -4px 5px 0;
+         }
+
+         input:focus{
+           border: none;
+         }
+
+         display: flex;
+         height: 18px;
+       }
+    }
+
+
+  }
+
+  .footer{
+       background: $footer-back;
+       padding-bottom: 50px;
+       position: relative;
+       padding-top: 50px;
+       h3{
+         font-size: 27px;
+         margin: 0 0 20px;
+       }
+        .text-footer{
+          font-size: 10px;
+          line-height: 25px;
+          padding-bottom: 40px;
+          padding-top: 20px;
+          color: #585d63;
+          b{
+            color: black;
+          }
+        }
+
+      .carre{
+        background: $white;
+        width: 25px;
+        height: 25px;
+        transform: rotate(45deg);
+        position: absolute;
+        top: -12.5px;
+        left: 49%;
+      }
+
+      .text-logo{
+        font-weight: bold;
+        font-size: 14px;
+      }
+  }
+
+}
+
+
+
+.row{
+  // display: flex;
+  // flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  .col8{
+    //  width: 50%;
+    flex: 67%;
+  }
+  .col6{
+    //  width: 50%;
+    flex: 50%;
+  }
+
+  .col4{
+    // width: 33%;
+    flex: 33%;
+  }
+
+  .col3{
+    // width: 25%;
+    flex: 25%;
+  };
+}
+
+.list-join{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.joinus-box{
+  background: $white;
+  width: 210px;
+  height: 112px;
+  @include center-item;
+  flex-direction: column;
+  padding: 20px 0 3px;
+  margin-bottom: 25px;
+}
+
+.error{
+  color: $error-red;
+}
+
+.divCodePhone{
+  width: 39%;
+}
+
+.divPhoneInput{
+  width: 57%;
+}
+
+.logo2{
+  height: 35px;
+  width: auto;
+}
+
+.message-input{
+  width: 95% !important;
+}
+
+.language{
+  width: 97.5% !important;
+}
+
+.selectCountry{
+  width: 39%;
+}
+
+.opacity{
+  opacity: 0.5;
+}
+
+.joinus{
+  font-size: 19px;
+}
+
+.space{
+  margin-bottom: 15px;
+}
+
+.error-top{
+  line-height: 30px;
+  font-weight: bold;
+}
+
+
+.error-style{
+  font-size: 10px;
+}
+
+.sub{
+  color: $text-sub;
+  margin: 0;
+  font-size: 10px;
+}
+
+
+.success{
+  color: $success;
+}
+
+
+@media (max-width: 760px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .content{
+  .body{
+    padding-left:5%;
+    padding-right:5%;
+    .form{
+      .input{
+        width: 90%;
+
+      }
+    }
+
+  }
+  }
+
+  .divSpace{
+    margin-top: 10px;
+  }
+
+  .divCodePhone{
+    width: 100%;
+    margin-bottom: 15px;
+    select{
+      width: 93% !important;
+    }
+  }
+
+  .divPhoneInput{
+    width: 100%;
+  }
+
+  .message-input{
+    width: 90% !important;
+  }
+
+  .language {
+    width: 93% !important;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  .divCodePhone{
+    select{
+      width: 94% !important;
+    }
+  }
+
+
+  .language {
+    width: 94% !important;
+  }
+}
+
+
+@media (max-width: 540px) {
+
+  .divCodePhone{
+    select{
+      width: 94% !important;
+    }
+  }
+
+
+  .language {
+    width: 94% !important;
+  }
+}
+
+@media (max-width: 390px) {
+
+  .divCodePhone{
+    select{
+      width: 96% !important;
+    }
+  }
+
+
+  .language {
+    width: 96% !important;
+  }
+}
+
+
+
+
+
